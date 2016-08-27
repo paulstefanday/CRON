@@ -1,0 +1,45 @@
+{
+  "name": "node-cron-choo-app",
+  "version": "1.0.0",
+  "description": "Cron Manager",
+  "main": "server.js",
+  "scripts": {
+    "server": "NODE_ENV=development nodemon -L --watch server.js --harmony --harmony-destructuring server.js",
+    "compile": "browserify client/index.js -o public/index.js -g es2040",
+    "min": "browserify client/index.js -o public/index.min.js -g unassertify -g bulkify -g es2040 -g uglifyify",
+    "client": "watch 'npm run compile' 'client/'",
+    "start": "npm-run-all --parallel server client",
+    "live": "node --harmony --harmony-destructuring server.js",
+    "setup": "node --harmony --harmony-destructuring setup.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Paul Day",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "choo": "^3.2.0",
+    "compression": "^1.6.2",
+    "feathers": "^2.0.1",
+    "feathers-authentication": "^0.7.9",
+    "feathers-errors": "^2.4.0",
+    "feathers-hooks": "^1.5.4",
+    "feathers-rest": "^1.4.3",
+    "feathers-rethinkdb": "^0.2.2",
+    "node-schedule": "^1.1.1",
+    "request": "^2.74.0",
+    "rethinkdbdash": "^2.3.19"
+  },
+  "devDependencies": {
+    "dotenv": "^2.0.0",
+    "babelify": "^7.3.0",
+    "browserify": "^13.1.0",
+    "bulkify": "^1.4.2",
+    "es2040": "^1.2.2",
+    "nodemon": "^1.10.0",
+    "npm-run-all": "^2.3.0",
+    "uglify-js": "^2.7.0",
+    "uglifyify": "^3.0.2",
+    "unassertify": "^2.0.3",
+    "watch": "^0.19.1"
+  }
+}
